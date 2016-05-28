@@ -4,13 +4,15 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 10
+Release  : 11
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
 Requires: R-testthat
+Requires: R-crayon
+BuildRequires : R-crayon
 BuildRequires : R-testthat
 BuildRequires : clr-R-helpers
 
@@ -30,8 +32,10 @@ BuildRequires : clr-R-helpers
 %install
 rm -rf %{buildroot}
 export LANG=C
-export CFLAGS="$CFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
