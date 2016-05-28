@@ -4,16 +4,12 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 11
+Release  : 12
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
-Requires: R-testthat
-Requires: R-crayon
-BuildRequires : R-crayon
-BuildRequires : R-testthat
 BuildRequires : clr-R-helpers
 
 %description
@@ -43,6 +39,7 @@ mkdir -p %{buildroot}/usr/lib64/R/library
 R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library praise
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
