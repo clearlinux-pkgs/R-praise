@@ -4,12 +4,20 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 12
+Release  : 13
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
+Requires: R-R6
+Requires: R-memoise
+Requires: R-digest
+Requires: R-magrittr
+BuildRequires : R-R6
+BuildRequires : R-digest
+BuildRequires : R-magrittr
+BuildRequires : R-memoise
 BuildRequires : clr-R-helpers
 
 %description
