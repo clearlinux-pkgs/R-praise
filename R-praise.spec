@@ -4,20 +4,12 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 16
+Release  : 17
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
-Requires: R-R6
-Requires: R-memoise
-Requires: R-digest
-Requires: R-magrittr
-BuildRequires : R-R6
-BuildRequires : R-digest
-BuildRequires : R-magrittr
-BuildRequires : R-memoise
 BuildRequires : clr-R-helpers
 
 %description
@@ -32,9 +24,12 @@ BuildRequires : clr-R-helpers
 %setup -q -c -n praise
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484545874
 
 %install
 rm -rf %{buildroot}
+export SOURCE_DATE_EPOCH=1484545874
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -44,7 +39,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
-R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library praise
+R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library praise
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C
