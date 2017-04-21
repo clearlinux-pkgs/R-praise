@@ -4,7 +4,7 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 20
+Release  : 21
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
@@ -24,12 +24,15 @@ BuildRequires : clr-R-helpers
 %setup -q -c -n praise
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484545874
+export SOURCE_DATE_EPOCH=1492802891
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1484545874
+export SOURCE_DATE_EPOCH=1492802891
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -45,7 +48,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library praise
 
@@ -56,6 +59,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/praise/INDEX
 /usr/lib64/R/library/praise/LICENSE
 /usr/lib64/R/library/praise/Meta/Rd.rds
+/usr/lib64/R/library/praise/Meta/features.rds
 /usr/lib64/R/library/praise/Meta/hsearch.rds
 /usr/lib64/R/library/praise/Meta/links.rds
 /usr/lib64/R/library/praise/Meta/nsInfo.rds
