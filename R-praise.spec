@@ -4,7 +4,7 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 26
+Release  : 27
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
@@ -24,11 +24,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1502414046
+export SOURCE_DATE_EPOCH=1502417250
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1502414046
+export SOURCE_DATE_EPOCH=1502417250
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
