@@ -4,19 +4,22 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 46
+Release  : 47
 URL      : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.rstudio.com/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
-Requires: R-assertthat
 BuildRequires : R-assertthat
 BuildRequires : buildreq-R
 
 %description
-praise their users if they have done something
-    good, or they just need it to feel better.
+# praise
+> Praise Users
+[![Linux Build Status](https://travis-ci.org/gaborcsardi/praise.svg?branch=master)](https://travis-ci.org/gaborcsardi/praise)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/praise?svg=true)](https://ci.appveyor.com/project/gaborcsardi/praise)
+[![](http://www.r-pkg.org/badges/version/praise)](http://www.r-pkg.org/pkg/praise)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/praise)](http://www.r-pkg.org/pkg/praise)
 
 %prep
 %setup -q -c -n praise
@@ -26,11 +29,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538581938
+export SOURCE_DATE_EPOCH=1552781783
 
 %install
+export SOURCE_DATE_EPOCH=1552781783
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1538581938
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library praise|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  praise || :
 
 
 %files
@@ -94,3 +96,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/praise/help/praise.rdx
 /usr/lib64/R/library/praise/html/00Index.html
 /usr/lib64/R/library/praise/html/R.css
+/usr/lib64/R/library/praise/tests/testthat.R
+/usr/lib64/R/library/praise/tests/testthat/helper.R
+/usr/lib64/R/library/praise/tests/testthat/test.R
