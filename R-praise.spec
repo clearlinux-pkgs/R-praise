@@ -4,41 +4,36 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 57
+Release  : 58
 URL      : https://cran.r-project.org/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
 Group    : Development/Tools
 License  : MIT
-BuildRequires : R-assertthat
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# praise
-> Praise Users
-[![Linux Build Status](https://travis-ci.org/gaborcsardi/praise.svg?branch=master)](https://travis-ci.org/gaborcsardi/praise)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/praise?svg=true)](https://ci.appveyor.com/project/gaborcsardi/praise)
-[![](http://www.r-pkg.org/badges/version/praise)](http://www.r-pkg.org/pkg/praise)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/praise)](http://www.r-pkg.org/pkg/praise)
+praise their users if they have done something
+    good, or they just need it to feel better.
 
 %prep
 %setup -q -c -n praise
+cd %{_builddir}/praise
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571877470
+export SOURCE_DATE_EPOCH=1589509020
 
 %install
-export SOURCE_DATE_EPOCH=1571877470
+export SOURCE_DATE_EPOCH=1589509020
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
