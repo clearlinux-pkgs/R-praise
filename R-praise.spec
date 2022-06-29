@@ -4,7 +4,7 @@
 #
 Name     : R-praise
 Version  : 1.0.0
-Release  : 73
+Release  : 74
 URL      : https://cran.r-project.org/src/contrib/praise_1.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/praise_1.0.0.tar.gz
 Summary  : Praise Users
